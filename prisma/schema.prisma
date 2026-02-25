@@ -1,0 +1,105 @@
+// Prisma schema - PostgreSQL
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id                   String   @id @default(uuid())
+  clientType           String   @map("client_type")
+  name                 String
+  lastName             String   @default("") @map("last_name")
+  firstName            String   @default("") @map("first_name")
+  address              String   @default("")
+  postalCode           String?  @map("postal_code")
+  settlement           String?  @map("settlement")
+  streetAddress        String?  @map("street_address")
+  phone                String
+  email                String
+  status               String
+  source               String
+  createdAt            DateTime @default(now()) @map("created_at")
+  updatedAt            DateTime? @updatedAt @map("updated_at")
+  taxNumber            String?  @map("tax_number")
+  contactLastName      String?  @map("contact_last_name")
+  contactFirstName     String?  @map("contact_first_name")
+  contactName          String?  @map("contact_name")
+  contactPhone         String?  @map("contact_phone")
+  contactEmail         String?  @map("contact_email")
+  subscribeConsent     Boolean  @default(false) @map("subscribe_consent")
+  billingSameAsAddress Boolean  @default(true) @map("billing_same_as_address")
+  billingName          String?  @map("billing_name")
+  billingAddress       String?  @map("billing_address")
+  billingTaxNumber     String?  @map("billing_tax_number")
+
+  processes Process[]
+  projects  Project[]
+
+  @@map("clients")
+}
+
+model Process {
+  id               String   @id @default(uuid())
+  clientId         String   @map("client_id")
+  text             String
+  status           String
+  createdAt        DateTime @default(now()) @map("created_at")
+  closedAt         DateTime? @map("closed_at")
+  responsibleUserId String? @map("responsible_user_id")
+
+  client   Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@index([clientId])
+  @@index([responsibleUserId])
+  @@map("processes")
+}
+
+model Project {
+  id        String   @id @default(uuid())
+  clientId  String   @map("client_id")
+  name      String
+  status    String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@index([clientId])
+  @@map("projects")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  role         String
+  name         String
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  sessions Session[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Setting {
+  id    String @id @default(uuid())
+  key   String @unique
+  value String
+
+  @@map("settings")
+}
