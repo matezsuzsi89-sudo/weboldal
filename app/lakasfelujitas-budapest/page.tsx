@@ -165,14 +165,21 @@ export default function LakasfelujitasBudapestPage() {
       </section>
 
       {/* Miben tudunk segíteni – szolgáltatások */}
-      <section
-        className="border-t border-gray-200 px-4 py-16 md:py-20"
-        style={{
-          background: 'linear-gradient(180deg, rgba(223,109,14,0.12) 0%, rgba(223,109,14,0.05) 50%, rgba(255,250,245,0.9) 100%)',
-        }}
-      >
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-center text-2xl font-bold text-text md:text-3xl">
+      <section className="relative overflow-hidden border-t border-gray-200 px-4 py-20 md:py-24">
+        {/* Háttérkép a 3. szekcióhoz */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/weboldal-kepek/precisolit_banner_2.png')" }}
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-4xl">
+          <h2
+            className="text-center text-2xl font-bold md:text-3xl -translate-y-12 md:translate-y-0"
+            style={{
+              color: '#fdf1dd',
+              textShadow: '0 2px 10px rgba(0,0,0,0.55)',
+            }}
+          >
             Miben tudunk valóban segíteni?
           </h2>
           <ul className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -231,6 +238,107 @@ export default function LakasfelujitasBudapestPage() {
           </ul>
           <div className="mt-10 text-center">
             <CTAButton location="15min_section" />
+          </div>
+        </div>
+      </section>
+
+      {/* Egyedi vizuális szekció – a „Miben tudunk segíteni” után */}
+      <section
+        className="relative overflow-hidden border-t border-gray-200 px-4 py-24 md:py-32"
+        aria-label="Üzenet"
+      >
+        <div
+          className="absolute inset-0 opacity-[0.97]"
+          style={{
+            background:
+              'linear-gradient(145deg, #1a1a1a 0%, #2d2520 35%, #1f1c1a 70%, #1a1a1a 100%)',
+          }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `
+              radial-gradient(ellipse 80% 50% at 50% 0%, rgba(223,109,14,0.25) 0%, transparent 55%),
+              radial-gradient(circle at 80% 80%, rgba(223,109,14,0.08) 0%, transparent 40%)
+            `,
+          }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.15)_100%)]" aria-hidden />
+        <div
+          className="absolute left-1/2 top-0 h-px w-32 -translate-x-1/2 opacity-60"
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(223,109,14,0.8), transparent)' }}
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-5xl">
+          <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5 px-6 py-10 shadow-[0_22px_60px_rgba(0,0,0,0.6)] md:px-10 md:py-12 lg:px-14 lg:py-14">
+            <div
+              className="pointer-events-none absolute -left-24 top-0 h-60 w-60 rounded-full bg-accent/25 blur-3xl"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute right-[-6rem] bottom-[-4rem] h-64 w-64 rounded-full bg-accent/10 blur-3xl"
+              aria-hidden
+            />
+            <div className="md:flex md:items-start md:gap-10 lg:gap-14">
+              <div className="md:basis-[40%] md:pt-10 lg:pt-12 md:pl-2 lg:pl-4">
+                <h2 className="text-2xl font-bold leading-tight text-white md:text-3xl lg:text-[32px] lg:leading-snug">
+                  Így indul el a felújítás
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-gray-300 md:text-[15px]">
+                  Csak azt mutatjuk meg, amiben biztosak vagyunk: a folyamatod végig átlátható,
+                  biztonságos és követhető marad.
+                </p>
+              </div>
+              <div className="mt-8 md:mt-0 md:flex-1">
+                <div
+                  className="pointer-events-none absolute left-[3.1rem] top-10 bottom-10 hidden md:block w-px bg-gradient-to-b from-accent/80 via-accent/35 to-transparent"
+                  aria-hidden
+                />
+                <div className="space-y-6 md:space-y-7">
+                  <div className="relative flex gap-4 md:gap-5">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/60 bg-accent/20 text-base font-semibold text-accent shadow-[0_0_0_1px_rgba(0,0,0,0.25)]">
+                      1.
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-white md:text-lg">
+                        Ingyenes 15 perces konzultáció
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-300 md:text-[15px]">
+                        Átbeszéljük, mit szeretnél, mire van szükséged, és milyen keretben gondolkodsz.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative flex gap-4 md:gap-5">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/60 bg-accent/20 text-base font-semibold text-accent shadow-[0_0_0_1px_rgba(0,0,0,0.25)]">
+                      2.
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-white md:text-lg">
+                        Személyes felmérés és részletes ajánlat
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-300 md:text-[15px]">
+                        Megnézzük a helyszínt, pontosítjuk a részleteket, és átlátható, tételes ajánlatot kapsz.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative flex gap-4 md:gap-5">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/60 bg-accent/20 text-base font-semibold text-accent shadow-[0_0_0_1px_rgba(0,0,0,0.25)]">
+                      3.
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-white md:text-lg">
+                        Ütemezés és indulás
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-300 md:text-[15px]">
+                        Rögzítjük a főbb lépéseket, és elindul a kivitelezés napi státuszjelentéssel.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
