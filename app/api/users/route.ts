@@ -3,6 +3,8 @@ import { getAuth } from '@/lib/auth';
 import { getAllUsers, addUser } from '@/lib/users';
 import type { UserRole } from '@/lib/users';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   const auth = await getAuth(request);
   if (!auth.ok) {

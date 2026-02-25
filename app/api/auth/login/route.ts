@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyUser, createSession } from '@/lib/users';
 
+export const dynamic = 'force-dynamic';
+
 const ADMIN_SECRET = process.env.ADMIN_SECRET || '1234';
 
 export async function POST(request: NextRequest) {

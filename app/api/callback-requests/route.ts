@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { addClient, getStatuses } from '@/lib/clients';
 import { addProcess } from '@/lib/processes';
 
+export const dynamic = 'force-dynamic';
+
 function buildCallbackProcessText(message: string): string {
   const msgLine = message.trim() || '(Nincs üzenet)';
   return `Az ügyfél visszahívást kért az alábbi üzenettel:

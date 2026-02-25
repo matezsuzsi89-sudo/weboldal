@@ -3,6 +3,8 @@ import { getAuth } from '@/lib/auth';
 import { getProcessesByResponsibleUser } from '@/lib/processes';
 import { getClients } from '@/lib/clients';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   const auth = await getAuth(request);
   if (!auth.ok) {
