@@ -1,12 +1,9 @@
 import {
-  ClipboardList,
   Clock,
   CheckCircle2,
-  Wrench,
   MapPin,
   Calendar,
   ShieldCheck,
-  FileCheck,
   Image,
   Wallet,
   UserCircle,
@@ -341,106 +338,8 @@ export default function LakasfelujitasBudapestPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Service focus */}
-      <section className="border-t border-gray-200 px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-center text-2xl font-bold text-text md:text-3xl">
-            Teljes lakásfelújítás – egy kézben, tiszta felelősséggel
-          </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl bg-card p-6 shadow-lg">
-              <Wrench className="mb-4 h-10 w-10 text-accent" />
-              <h3 className="mb-2 text-lg font-semibold text-text">
-                Tervezés és ütemezés
-              </h3>
-              <p className="text-muted text-sm">
-                Közösen áttekintjük a feladatot, elkészítjük a reális ütemtervet,
-                tisztázzuk a kereteket.
-              </p>
-            </div>
-            <div className="rounded-2xl bg-card p-6 shadow-lg">
-              <ClipboardList className="mb-4 h-10 w-10 text-accent" />
-              <h3 className="mb-2 text-lg font-semibold text-text">
-                Kivitelezés és koordináció
-              </h3>
-              <p className="text-muted text-sm">
-                Egy felelős koordinálja a munkát, heti egyeztetéssel naprakész
-                vagy minden lépésről.
-              </p>
-            </div>
-            <div className="rounded-2xl bg-card p-6 shadow-lg">
-              <FileCheck className="mb-4 h-10 w-10 text-accent" />
-              <h3 className="mb-2 text-lg font-semibold text-text">
-                Átadás és garancia-alapok
-              </h3>
-              <p className="text-muted text-sm">
-                Átadáskor áttekintjük az elvégzett munkákat, egyeztetjük az
-                esetleges további teendőket.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="border-t border-gray-200 px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-center text-2xl font-bold text-text md:text-3xl">
-            Így dolgozunk – röviden, érthetően
-          </h2>
-          <div className="mt-12 space-y-6">
-            {[
-              { step: 1, title: '15 perces konzultáció', desc: 'Telefonon vagy online tisztázzuk a feladatot és a kereteket.' },
-              { step: 2, title: 'Helyszíni felmérés (ha releváns)', desc: 'Ha érdemes személyesen megnézni a lakást, időpontot egyeztetünk.' },
-              { step: 3, title: 'Ajánlat és ütemezés', desc: 'Átlátható ajánlatot küldünk, amit közösen átbeszélünk.' },
-              { step: 4, title: 'Kivitelezés – heti egyeztetéssel', desc: 'Folyamatos kapcsolattartás, naprakész információk a projektről.' },
-              { step: 5, title: 'Átadás', desc: 'Közösen átnézzük az elvégzett munkákat, lezárjuk a projektet.' },
-            ].map((item) => (
-              <div key={item.step} className="flex gap-4 rounded-2xl bg-card p-6 shadow-lg">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/20 text-lg font-bold text-accent">
-                  {item.step}
-                </div>
-                <div>
-                  <h3 className="font-semibold text-text">{item.title}</h3>
-                  <p className="mt-1 text-sm text-muted">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <CTAButton location="process" />
-          </div>
-        </div>
-      </section>
-
-      {/* References */}
-      <section id="references" className="border-t border-gray-200 px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-center text-2xl font-bold text-text md:text-3xl">
-            Munkák, amikért ki tudunk állni
-          </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="overflow-hidden rounded-2xl bg-card shadow-lg">
-                <div className="aspect-[4/3] bg-bg">
-                  <div className="flex h-full w-full items-center justify-center border border-dashed border-gray-300 text-muted">
-                    <span className="text-sm">Referencia placeholder {i + 1}</span>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <p className="text-sm text-text">Rövid leírás a munkáról – helyettesítsd saját tartalommal.</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="mt-8 text-center text-muted">
-            Kérsz több példát? A konzultáción mutatunk konkrét munkákat is.
-          </p>
-          <div className="mt-6 flex justify-center">
-            <CTAButton location="references" />
-          </div>
+        <div className="relative mx-auto mt-10 flex max-w-5xl justify-center px-4 pb-4">
+          <CTAButton location="process" />
         </div>
       </section>
 
@@ -452,12 +351,11 @@ export default function LakasfelujitasBudapestPage() {
           </h2>
           <div className="mt-12 space-y-4">
             {[
-              { q: 'Mennyibe kerül egy felújítás?', a: 'A költség a lakás méretétől, a munka típusától és a minőségigénytől függ. A konzultáción reális keretet adunk, amibe bele tudod kalkulálni magad.' },
-              { q: 'Mennyi ideig tart?', a: 'A felújítás időtartama a lakás méretétől és a munka terjedelmétől függ. A konzultáción becslést adunk, hogy tudod tervezni.' },
-              { q: 'Kell helyszíni felmérés?', a: 'Igen, ha komolyabb projekt – akkor személyesen megnézzük a helyszínt, mielőtt ajánlatot adnánk.' },
-              { q: 'Dolgoztok szerződéssel?', a: 'Igen, projektfüggően minden fontos lépet szerződéssel rögzítünk.' },
-              { q: 'Mikor tudtok kezdeni?', a: 'A kapacitás függvénye – a konzultáción tisztázzuk, mikorra tudnánk kezdeni.' },
-              { q: 'Budapesten és Sopronban is vállaltok?', a: 'Igen, mindkét területen dolgozunk. A pontos lefedettséget konzultáción egyeztetjük.' },
+              { q: 'Mi történik, ha menet közben plusz munka merül fel?', a: 'Minden változtatást előre átbeszélünk. Csak az kerül elvégzésre, amiben közösen megállapodtunk.' },
+              { q: 'Mennyi ideig tart egy felújítás?', a: 'A pontos időtartam a munka jellegétől függ, de a felmérés után reális ütemezést adunk, amit végig követni lehet.' },
+              { q: 'Ott kell lennem a munkálatok alatt?', a: 'Nem szükséges. Napi státuszjelentéssel tájékoztatunk, így akkor is pontosan látod a haladást, ha nem vagy jelen.' },
+              { q: 'Mikor tud indulni a munka?', a: 'Kapacitástól függően egyeztetjük, de a felmérés után konkrét kezdési időpontot rögzítünk.' },
+              { q: 'Hogyan tudok jelentkezni?', a: 'Az oldalon található űrlap kitöltésével. Rövid egyeztetés után időpontot adunk a felmérésre.' },
             ].map((item, i) => (
               <details key={i} className="group rounded-2xl bg-card shadow-lg">
                 <summary className="cursor-pointer list-none px-6 py-4 font-medium text-text [&::-webkit-details-marker]:hidden">
@@ -469,6 +367,83 @@ export default function LakasfelujitasBudapestPage() {
                 </div>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Rólunk */}
+      <section className="relative overflow-hidden px-4 py-24 md:py-32">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/weboldal-kepek/precisolit-banner-3.png')" }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(135deg, rgba(223,109,14,0.45) 0%, rgba(196,93,12,0.5) 50%, rgba(168,77,9,0.55) 100%)',
+          }}
+          aria-hidden
+        />
+        {/* Dekoratív elemek */}
+        <div className="absolute inset-0 opacity-15" aria-hidden>
+          <div
+            className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-white"
+            style={{ filter: 'blur(80px)' }}
+          />
+          <div
+            className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-amber-200"
+            style={{ filter: 'blur(70px)' }}
+          />
+        </div>
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                             radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 45%)`,
+          }}
+          aria-hidden
+        />
+        {/* Szegélyek */}
+        <div
+          className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
+          aria-hidden
+        />
+        <div
+          className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-4xl">
+          <div className="rounded-3xl border border-white/20 bg-white/5 px-8 py-12 shadow-2xl backdrop-blur-sm md:px-14 md:py-16">
+            <div className="flex flex-col items-center text-center md:flex-row md:items-start md:gap-12 md:text-left">
+              <div className="mb-8 shrink-0 md:mb-0 md:w-48">
+                <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+                  Rólunk
+                </h2>
+                <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-white/70 md:mx-0" aria-hidden />
+                <div
+                  className="mt-6 hidden text-7xl font-extralight leading-none text-white/30 md:block"
+                  aria-hidden
+                >
+                  „
+                </div>
+              </div>
+              <div className="flex-1 space-y-5 text-lg leading-relaxed text-white/95 md:text-xl">
+                <p>
+                  A Precisolit azért jött létre, hogy a felújítás ne bizonytalanságot, hanem kiszámítható folyamatot jelentsen.
+                </p>
+                <p>
+                  Számunkra a kivitelezés nem csak munka, hanem felelősség. Egy otthon átalakítása bizalmi döntés – ezért dolgozunk átlátható rendszerben, előre egyeztetett lépésekkel és folyamatos kommunikációval.
+                </p>
+                <p>
+                  Hiszünk abban, hogy a rendezett működés és az őszinte egyeztetés többet ér, mint a hangzatos ígéretek.
+                </p>
+                <p className="border-l-4 border-white/60 py-2 pl-5 text-xl font-semibold text-white md:text-2xl">
+                  Ha velünk dolgozol, pontosan tudni fogod, mi történik – és miért.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

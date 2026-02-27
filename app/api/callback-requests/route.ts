@@ -14,6 +14,17 @@ Hívd vissza a lehető leghamarabb.`;
 }
 
 export async function POST(request: NextRequest) {
+  if (!process.env.DATABASE_URL?.trim()) {
+    console.error('DATABASE_URL is not set – callback request cannot be saved');
+    return NextResponse.json(
+      {
+        error:
+          'A beküldés jelenleg nem elérhető (adatbázis nincs beállítva). Kérjük, írj nekünk e-mailben vagy próbáld később.',
+      },
+      { status: 503 }
+    );
+  }
+
   try {
     const body = await request.json();
     const clientType = body.clientType === 'ceges' ? 'ceges' : 'maganszemely';
@@ -85,7 +96,10 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error saving callback request:', error);
     return NextResponse.json(
-      { error: 'Sikertelen mentés' },
+      {
+        error:
+          'Sikertelen mentés. Kérjük, próbáld újra később, vagy írj nekünk közvetlenül e-mailben.',
+      },
       { status: 500 }
     );
   }
